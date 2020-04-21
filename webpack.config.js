@@ -7,11 +7,8 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 }
 
 Encore
-    // directory where compiled assets will be stored
     .setOutputPath('public/build/')
-    // public path used by the web server to access the output path
     .setPublicPath('/build')
-    // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
     /*
@@ -52,7 +49,6 @@ Encore
         config.useBuiltIns = 'usage';
         config.corejs = 3;
     })
-
     // enables Sass/SCSS support
     //.enableSassLoader()
 
@@ -67,7 +63,6 @@ Encore
     //.autoProvidejQuery()
 
     // uncomment if you use API Platform Admin (composer req api-admin)
-    //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
     .enableReactPreset()
 ;

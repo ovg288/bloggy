@@ -14,7 +14,7 @@ class ApplicationView extends Component {
     }
 
     componentDidMount() {
-        fetch("/api/items")
+        fetch('/api/article/list')
             .then(res => res.json())
             .then(
                 (result) => {

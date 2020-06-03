@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\DoctrineArticleService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,13 +21,16 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/api/article/create", name="article.create", methods={"POST"})
+     * @Route("/api/article/create", name="article.create", methods={"GET"})
+     * @param DoctrineArticleService $articleService
      * @return JsonResponse
      */
-    public function create()
+    public function create(DoctrineArticleService $articleService)
     {
+        $article = $articleService->create();
+
         return $this->json([
-            'success' => []
+            'success' => $article
         ]);
     }
 
@@ -44,9 +48,10 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/api/article/{id}/update", name="article.update", requirements={"id"="\d+"}, methods={"POST"})
+     * @param DoctrineArticleService $articleService
      * @return JsonResponse
      */
-    public function update()
+    public function update(DoctrineArticleService $articleService)
     {
         return $this->json([
             'success' => []
@@ -55,8 +60,10 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/api/article/{id}/archive", requirements={"id"="\d+"})
+     * @param DoctrineArticleService $articleService
+     * @return JsonResponse
      */
-    public function archive()
+    public function archive(DoctrineArticleService $articleService)
     {
         return $this->json([
             'success' => []

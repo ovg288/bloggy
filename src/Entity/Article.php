@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -14,34 +15,36 @@ class Article
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $content;
+    private ?string $content;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\DateTime
      */
-    private $created_at;
+    private ?\DateTimeInterface $created_at;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\DateTime
      */
-    private $updated_at;
+    private ?\DateTimeInterface $updated_at;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $announce;
+    private ?string $announce;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }

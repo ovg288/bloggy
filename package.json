@@ -4,7 +4,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.9.4",
     "@symfony/webpack-encore": "^0.29.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "webpack-notifier": "^1.6.0"
   },
   "dependencies": {
